@@ -7,7 +7,10 @@ export async function getUserRooms() {
     const session = await auth();
     if (!session) return { rooms: [], firstName: '' };
 
-    const firstName = session.user.user_metadata?.full_name?.split(' ')[0] || 'there';
+    const firstName =
+        session.user.name?.split(' ')?.[0] ||
+        session.user.user_metadata?.full_name?.split(' ')?.[0] ||
+        'there';
     const supabase = await createClient();
 
     const { data: userRecord } = await supabase

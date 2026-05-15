@@ -3,14 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --background: #faf5ff;
-  --foreground: #1e1b4b;
-
-  /* Brand color tokens */
-  --brand: #9333ea;
-  --brand-dark: #7e22ce;
-  --brand-light: #f3e8ff;
-  --brand-mid: #c084fc;
+  --background: #f0f4f8;
+  --foreground: #0f172a;
+  --brand: #059669;
+  --brand-dark: #047857;
+  --brand-light: #d1fae5;
+  --brand-mid: #34d399;
 }
 
 /* Hide number input spinners globally */
@@ -22,7 +20,29 @@ input[type='number']::-webkit-outer-spin-button {
 
 body {
   color: var(--foreground);
-  background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+  background: var(--background);
   min-height: 100vh;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+.pocket-shell {
+  @apply relative;
+  background-image:
+    radial-gradient(ellipse 120% 80% at 0% -20%, rgb(16 185 129 / 0.12), transparent 50%),
+    radial-gradient(ellipse 100% 60% at 100% 0%, rgb(20 184 166 / 0.1), transparent 45%),
+    linear-gradient(to bottom, rgb(248 250 252 / 0.95), rgb(240 244 248));
+}
+
+.pocket-shell::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2394a3b8' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.9;
+}
+
+.pocket-card {
+  @apply bg-white/90 backdrop-blur-sm;
 }

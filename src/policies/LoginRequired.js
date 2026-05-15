@@ -1,4 +1,4 @@
-'server-only'
+import 'server-only'
 
 import { auth } from '@/auth'
 import { redirect } from 'next/navigation'

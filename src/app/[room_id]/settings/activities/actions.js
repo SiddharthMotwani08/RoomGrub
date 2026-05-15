@@ -143,3 +143,7 @@ export async function deleteGroceryActivity(activityId, material, money, roomId)
   revalidatePath(`/${roomId}`, 'layout');
   return { success: true };
 }
+
+export async function deletePaymentActivity(activityId, material, money, roomId) {
+  return deleteGroceryActivity(activityId, material, money, roomId);
+}
