@@ -7,7 +7,7 @@ export default function useUserRole(roomId) {
   const supabase = createClient();
 
   useEffect(() => {
-    if (!roomId) {
+    if (!roomId || !supabase) {
       setLoading(false);
       return;
     }
