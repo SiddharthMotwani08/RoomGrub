@@ -13,6 +13,8 @@ export default async function Home() {
   const session = await getServerSession(authOptions);
   if (!session?.user?.id) redirect('/login');
 
+
+  
   const memberships = await db.groupMember.findMany({
     where: { userId: session.user.id, active: true },
     include: {
